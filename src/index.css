@@ -17,18 +17,24 @@ header {
   left: 30px;
 }
 
-.button-min {
+.buttonHeader {
   position: absolute;
   top: 34px;
-  left: 510px;
+  cursor: pointer;
+  transition: transform 0.1s ease;
   -webkit-app-region: no-drag;
 }
 
-.button-close {
-  position: absolute;
-  top: 34px;
+#buttonMin {
+  left: 510px;
+}
+
+#buttonClose {
   left: 605px;
-  -webkit-app-region: no-drag;
+}
+
+.buttonHeader:hover {
+  filter: brightness(1.1);
 }
 
 main {

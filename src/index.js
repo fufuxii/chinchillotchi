@@ -36,7 +36,7 @@ const createWindow = () => {
     mainWindow.close();
   });
 
-    // Minimize button.
+  // Minimize button.
   ipc.on('minimizeApp', () => {
     console.log('Minimize button clicked!');
     mainWindow.minimize();
