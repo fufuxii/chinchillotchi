@@ -5,9 +5,9 @@ const buttonMin = document.getElementById('buttonMin');
 const buttonClose = document.getElementById('buttonClose');
 
 buttonMin.addEventListener('click', () => {
-ipc.send('minimizeApp');
+  ipc.send('minimizeApp');
 });
 
 buttonClose.addEventListener('click', () => {
-ipc.send('closeApp');
+  ipc.send('closeApp');
 });
