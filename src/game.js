@@ -3,6 +3,7 @@ const lifeBar75 = "art/life-bar/life_bar_75.png";
 const lifeBar50 = "art/life-bar/life_bar_50.png";
 const lifeBar25 = "art/life-bar/life_bar_25.png";
 const lifeBar0 = "art/life-bar/life_bar_0.png";
+const gameOver = "art/chinchilla/chinchilla_dead.png";
 let intervalId = null;
 let counterBar = 1;
 
@@ -23,7 +24,7 @@ function isGameOver(counterBar) {
 intervalId = setInterval(() => {
   document.getElementById('lifeBar').src = getLifeBar(counterBar);
   if (isGameOver(counterBar)) {
-    // document.getElementById('chinchillaArt').src = 
+    document.getElementById('chinchillaArt').src = gameOver;
     clearInterval(intervalId);
     console.log('Game over!');
   }
