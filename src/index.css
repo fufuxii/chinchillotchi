@@ -81,3 +81,12 @@ main {
   align-items: center;
   gap: 40px;
 }
+
+.buttonAction {
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.buttonAction:hover {
+  transform: scale(1.1);
+}
