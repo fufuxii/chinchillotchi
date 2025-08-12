@@ -14,6 +14,7 @@ const bubbleActions = [
 ];
 
 const gameOverImg = "art/chinchilla/chinchilla_dead.png";
+let indexAction = 0;
 let intervalId = null;
 let counterBar = 5;
 
@@ -53,28 +54,64 @@ function decreaseLifeBarByOne() {
 function endGame() {
   clearInterval(intervalId);
   document.getElementById('chinchillaArt').src = gameOverImg;
+  document.getElementById('bubbleState').style.visibility = 'hidden';
   console.log("Game over!");
 }
 
 function selectRandomAction() {
-  let randomIndex = Math.floor(Math.random() * bubbleActions.length);
-  return bubbleActions[randomIndex];
+  indexAction = Math.floor(Math.random() * bubbleActions.length);
+  return bubbleActions[indexAction]
 }
 
 function updateBubbleAction() {
   document.getElementById('bubbleState').src = selectRandomAction();
 }
 
+function isTheCorrectAction(actionSelected) {
+  return actionSelected === indexAction;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('#buttonEat, #buttonPet, #buttonSleep, #buttonWash')
-    .forEach(btn => {
-      btn.addEventListener('click', () => {
-        increaseLifeBarByOne();
-        updateBubbleAction(); 
-      });
-    });
+  document.getElementById('buttonEat').addEventListener('click', () => {
+    if (isTheCorrectAction(0)) {
+      increaseLifeBarByOne();
+      console.log("Correct action!");
+    } else {
+      console.log("Incorrect action!");
+    }
+    updateBubbleAction();
+  });
+
+  document.getElementById('buttonPet').addEventListener('click', () => {
+    if (isTheCorrectAction(1)) {
+      increaseLifeBarByOne();
+      console.log("Correct action!");
+    } else {
+      console.log("Incorrect action!");
+    }
+    updateBubbleAction();
+  });
+
+  document.getElementById('buttonSleep').addEventListener('click', () => {
+    if (isTheCorrectAction(2)) {
+      increaseLifeBarByOne();
+      console.log("Correct action!");
+    } else {
+      console.log("Incorrect action!");
+    }
+    updateBubbleAction();
+  });
+
+  document.getElementById('buttonWash').addEventListener('click', () => {
+    if (isTheCorrectAction(3)) {
+      increaseLifeBarByOne();
+      console.log("Correct action!");
+    } else {
+      console.log("Incorrect action!");
+    }
+    updateBubbleAction();
+  });
+
   updateLifeBar();
-  intervalId = setInterval(() => {
-    decreaseLifeBarByOne();
-  }, 2000);
+  intervalId = setInterval(decreaseLifeBarByOne, 2000);
 });
