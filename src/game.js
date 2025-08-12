@@ -51,13 +51,6 @@ function decreaseLifeBarByOne() {
   }
 }
 
-function endGame() {
-  clearInterval(intervalId);
-  document.getElementById('chinchillaArt').src = gameOverImg;
-  document.getElementById('bubbleState').style.visibility = 'hidden';
-  console.log("Game over!");
-}
-
 function selectRandomAction() {
   indexAction = Math.floor(Math.random() * bubbleActions.length);
   return bubbleActions[indexAction]
@@ -69,6 +62,21 @@ function updateBubbleAction() {
 
 function isTheCorrectAction(actionSelected) {
   return actionSelected === indexAction;
+}
+
+function showCorrectAction() {
+  //show img
+}
+
+function showIncorrectAction() {
+  //show img
+}
+
+function endGame() {
+  clearInterval(intervalId);
+  document.getElementById('chinchillaArt').src = gameOverImg;
+  document.getElementById('bubbleState').style.display = 'none';
+  console.log("Game over!");
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -114,4 +122,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
   updateLifeBar();
   intervalId = setInterval(decreaseLifeBarByOne, 2000);
+});
+
+const chinchillaDefault = [
+  "art/chinchilla/chinchilla_default_1.png",
+  "art/chinchilla/chinchilla_default_2.png"
+];
+
+let chinchillaDefaultIndex = 0;
+
+function animateChinchilla() {
+  if (chinchillaDefaultIndex === 0) {
+    document.getElementById('chinchillaArt').src = chinchillaDefault[1];
+    chinchillaDefaultIndex = 1;
+  } 
+  else {
+    document.getElementById('chinchillaArt').src = chinchillaDefault[0];
+    chinchillaDefaultIndex = 0;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  intervalId = setInterval(animateChinchilla, 400);
 });
