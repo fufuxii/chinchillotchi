@@ -14,6 +14,8 @@ const bubbleActions = [
 ];
 
 const gameOverImg = "art/chinchilla/chinchilla_dead.png";
+const faceCorrectImg = "art/face/face_correct.png";
+const faceIncorrectImg = "art/face/face_incorrect.png";
 let indexAction = 0;
 let intervalId = null;
 let counterBar = 5;
@@ -65,11 +67,25 @@ function isTheCorrectAction(actionSelected) {
 }
 
 function showCorrectAction() {
-  //show img
+  document.getElementById('faceAction').src = faceCorrectImg;
+  document.getElementById('faceAction').style.display = 'block';
+  document.getElementById('faceAction').classList.remove('float');
+  document.getElementById('faceAction').offsetWidth; 
+  document.getElementById('faceAction').classList.add('float');
+  setTimeout(() => {
+    document.getElementById('faceAction').style.display = 'none';
+  }, 1000);
 }
 
 function showIncorrectAction() {
-  //show img
+  document.getElementById('faceAction').src = faceIncorrectImg;
+    document.getElementById('faceAction').style.display = 'block';
+  document.getElementById('faceAction').classList.remove('float');
+  document.getElementById('faceAction').offsetWidth; 
+  document.getElementById('faceAction').classList.add('float');
+  setTimeout(() => {
+    document.getElementById('faceAction').style.display = 'none';
+  }, 1000);
 }
 
 function endGame() {
@@ -83,9 +99,10 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('buttonEat').addEventListener('click', () => {
     if (isTheCorrectAction(0)) {
       increaseLifeBarByOne();
-      console.log("Correct action!");
-    } else {
-      console.log("Incorrect action!");
+      showCorrectAction();
+    } 
+    else {
+      showIncorrectAction();
     }
     updateBubbleAction();
   });
@@ -93,9 +110,10 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('buttonPet').addEventListener('click', () => {
     if (isTheCorrectAction(1)) {
       increaseLifeBarByOne();
-      console.log("Correct action!");
-    } else {
-      console.log("Incorrect action!");
+      showCorrectAction();
+    } 
+    else {
+      showIncorrectAction();
     }
     updateBubbleAction();
   });
@@ -103,9 +121,10 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('buttonSleep').addEventListener('click', () => {
     if (isTheCorrectAction(2)) {
       increaseLifeBarByOne();
-      console.log("Correct action!");
-    } else {
-      console.log("Incorrect action!");
+      showCorrectAction();
+    } 
+    else {
+      showIncorrectAction();
     }
     updateBubbleAction();
   });
@@ -113,9 +132,10 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('buttonWash').addEventListener('click', () => {
     if (isTheCorrectAction(3)) {
       increaseLifeBarByOne();
-      console.log("Correct action!");
-    } else {
-      console.log("Incorrect action!");
+      showCorrectAction();
+    } 
+    else {
+      showIncorrectAction();
     }
     updateBubbleAction();
   });
